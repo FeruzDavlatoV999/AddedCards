@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "913095193460",
+    "project_id": "tune-consulting-8711e",
+    "storage_bucket": "tune-consulting-8711e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913095193460:android:899587b531e85ff2efb221",
+        "android_client_info": {
+          "package_name": "com.maverick.addedcards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913095193460-sulj4nmgp09uaupdpl7mrrudlq3vkdae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDClHdwUPZ3844ZOHLrd7fYmZounrBRFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913095193460-sulj4nmgp09uaupdpl7mrrudlq3vkdae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
