@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Added Cards</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_card">Karta qo\'shish</string>
+    <string name="add_info_card">Karta ma\'lumotlarini kiriting</string>
+    <string name="card_number">karta raqami</string>
+    <string name="expire_date">Amal qilish sanasi</string>
+    <string name="continued">Davom etish</string>
+    <string name="str_all">Hammasi</string>
+    <string name="str_sevimli">Sevimli</string>
+    <string name="str_uzcard">UzCard</string>
+    <string name="str_humo">HUMO</string>
+    <string name="str_international_cards">XalqaroKartalar</string>
+    <string name="main_card">Asosiy Karta</string>
+    <string name="cards">Kartalar</string>
 </resources>

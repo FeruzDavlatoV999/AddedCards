@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.maverick.addedcards.R
 import com.maverick.addedcards.databinding.FragmentAddCardBinding
 import com.maverick.addedcards.databinding.FragmentCardBinding
@@ -32,9 +33,15 @@ class AddCardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observer()
-        binding.addBtn.setOnClickListener {
-            viewModel.addCard(getCard())
-            toast("Clicked Button")
+        binding.btnContinue.setOnClickListener {
+            if (validation()){
+                viewModel.addCard(getCard())
+                findNavController().navigate(R.id.cardFragment)
+            }
+        }
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.cardFragment)
         }
     }
 
@@ -42,25 +49,43 @@ class AddCardFragment : Fragment() {
         viewModel.addCard.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Loading -> {
+                    binding.progress.visibility = View.VISIBLE
 
                 }
                 is UiState.Failure -> {
+                    binding.progress.visibility = View.GONE
                     toast(state.error)
                     Log.d("AddCardFragment", "observer: ${state.error}")
+
                 }
                 is UiState.Success -> {
+                    binding.progress.visibility = View.GONE
                     toast(state.data.second)
                     objData = state.data.first
+
                 }
             }
         }
     }
-    private fun getCard():Card{
+    private fun getCard(): Card {
         return Card(
             cardHolder = "John",
-            cardNumber= "8600000000000000",
-            expireDate = "1225",
-            money = "0000"
+            cardNumber= binding.etCardNumber.text.toString(),
+            expireDate = binding.etValidityPeriodOfTheCard.text.toString(),
+            money = "00.0 UZS"
         )
+    }
+
+    private fun validation(): Boolean {
+        var isValid = true
+        if (binding.etCardNumber.text.toString().isNullOrEmpty()) {
+            isValid = false
+            toast("CardNumber missing")
+        }
+        if (binding.etValidityPeriodOfTheCard.text.toString().isNullOrEmpty()) {
+            isValid = false
+            toast("Expire Date missing")
+        }
+        return isValid
     }
 }
