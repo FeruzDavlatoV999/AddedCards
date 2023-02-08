@@ -49,17 +49,17 @@ class AddCardFragment : Fragment() {
         viewModel.addCard.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Loading -> {
-                    binding.progress.visibility = View.VISIBLE
+
 
                 }
                 is UiState.Failure -> {
-                    binding.progress.visibility = View.GONE
+
                     toast(state.error)
                     Log.d("AddCardFragment", "observer: ${state.error}")
 
                 }
                 is UiState.Success -> {
-                    binding.progress.visibility = View.GONE
+
                     toast(state.data.second)
                     objData = state.data.first
 
